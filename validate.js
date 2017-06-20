@@ -8,10 +8,9 @@ const path = require('path'),
 function validate([fn, pgn]) {
     const chess = new Chess();
     if (!chess.load_pgn(pgn)) {
-        console.log('Error validating', fn);
-    } else {
-        console.log('Validate OK', fn);
-    }
+        const parsed = chess.pgn();
+        console.log('Error validating', fn, '<omitted> ' + parsed.substr(parsed.length - 10));
+    } 
 }
 
 async function validateDir(dir) {

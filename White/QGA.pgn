@@ -1,8 +1,8 @@
 [Event "QGA with 7. ...b5"]
-1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. 0-0 a6 7. Bb3 b5 *
+1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. O-O a6 7. Bb3 b5 *
 
 [Event "QGA with 7. ...Nc6"]
-1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. 0-0 a6 7. Bb3 Nc6 *
+1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. O-O a6 7. Bb3 Nc6 *
 
 [Event "QGA with 7. ...cxd4"]
-1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. 0-0 a6 7. Bb3 cxd4 *
+1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. O-O a6 7. Bb3 cxd4 *
