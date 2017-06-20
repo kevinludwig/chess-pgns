@@ -6,7 +6,8 @@
     "test": "node validate.js"
   },
   "dependencies": {
-    "chess.js": "^0.10.2"
+    "chess.js": "^0.10.2",
+    "pegjs": "^0.10.0"
   },
   "devDependencies": {}
 }
