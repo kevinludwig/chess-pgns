@@ -1,0 +1,12 @@
+[Event "KID Fianchetto - Panno"]
+1. Nf3 Nf6 2. c4 g6 3. Nc3 Bg7 4. d4 0-0 5. g3 d6 6. Bg2 Nc6 7. 0-0 a6 8. h3 (8. Qd3) Rb8 9. e4 b5 10. e5 dxe5 11. dxe5 Qxd1 12. Rxd1 Nd7 13. e6 fxe6 14. cxb5 axb5 15. Be3 *
+
+[Event "KID Fianchetto - Yugoslav Exchange"]
+1. Nf3 Nf6 2. c4 g6 3. Nc3 Bg7 4. d4 0-0 5. g3 d6 6. Bg2 c5  7. 0-0 Nc6 (7. ...cxd4) 8. dxc5 dxc5 9. Be3 Be6 10. Qa4 *
+
+[Event "KID Fianchetto - Nbd7 and c6"]
+1. Nf3 Nf6 2. c4 g6 3. Nc3 Bg7 4. d4 0-0 5. g3 d6 6. Bg2 Nbd7 7. 0-0 c6 8. e4 e5 9. h3 Qb6 10. Re1 exd4 11. Nxd4 Re8 12. Re2 Ng4 13. Rd2 Nge5 14. b3 *
+
+[Event "KID Fianchetto - Nbd7 without c6"]
+1. Nf3 Nf6 2. c4 g6 3. Nc3 Bg7 4. d4 0-0 5. g3 d6 6. Bg2 Nbd7 7. 0-0 e5 8. e4 exd4 9. Nxd4 Re8 10. h3 Nc5 11. Re1 a5 12. b3 *
+
