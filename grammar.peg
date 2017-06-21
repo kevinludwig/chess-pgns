@@ -25,11 +25,12 @@
 start = h:headers m:movetext r:result? {return make_game(h,m,r)}
 
 double_quote = '"'
-whitespace = ' ' / '\f' / '\t'
+ws = ' ' / '\f' / '\t'
+whitespace = ws / newline
 newline = '\n'
 header_name = chars:[A-Za-z0-9_-]+ {return chars.join('');}
 header_value = chars:[A-Za-z0-9_-]+ {return chars.join('');}
-header = '[' hn:header_name whitespace+ double_quote hv:header_value double_quote ']' newline? { return make_header(hn,hv) }
+header = '[' hn:header_name ws+ double_quote hv:header_value double_quote ']' newline { return make_header(hn,hv) }
 headers = hs:header+ {return hs;}
 
 piece = [NKQRB]
@@ -43,7 +44,11 @@ move_number = first:[1-9] rest:[0-9]* period? {return parseInt(first + rest.join
 square = r:rank f:file {return r+f;}
 comment_chars = [^}]
 comment = "{" cc:comment_chars* "}" {return cc.join('');}
-half_move = tokens:(piece capture? square check? / (r:rank c:capture)? square check?) {return flatten(tokens).join('');}
+promotion = "=" [QRBN]
+pawn_half_move = (r:rank c:capture)? square promotion? check?
+piece_half_move = piece capture? square check?
+castle_half_move = ("O-O" / "O-O-O") check?
+half_move = m:(castle_half_move / piece_half_move / pawn_half_move) {return flatten(m).join('');}
 move = c0:(c0:comment whitespace+ {return c0})? 
        mn:move_number? 
        c1:(whitespace+ c1:comment whitespace+ {return c1} / whitespace* {return ''}) 
@@ -53,5 +58,6 @@ move = c0:(c0:comment whitespace+ {return c0})?
        b:half_move 
        c3:(whitespace+ c3:comment {return c3})? 
        {return {mn: mn, w: w, b: b, c0: c0 || '', c1: c1 || '', c2: c2 || '', c3: c3 || ''}}
-movetext = moves:(move whitespace+)+ last:(move whitespace*) {console.log('last', last); return moves.map(m => m[0]).concat(last[0]);}
+
+movetext = moves:(move whitespace+)+ { return moves.map(m => m[0])}
 
