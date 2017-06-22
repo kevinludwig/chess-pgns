@@ -72,11 +72,13 @@ move = mn:move_number?
        w:half_move 
        wn:(whitespace+ n:nag {return n})*
        c1:(whitespace+ c2:comment {return c2})? 
+       wrav:(whitespace+ r:rav {return r})?
        whitespace+ 
        b:half_move 
        bn:(whitespace+ n:nag {return n})*
-       c2:(whitespace+ c3:comment {return c3})? 
-       {return {mn: mn, w: w, wn: wn, b: b, bn: bn, c1: c1 || '', c2: c2 || ''}}
+       c2:(whitespace+ c3:comment {return c3})?
+       brav: (whitespace+ r:rav {return r})?
+       {return {mn: mn, w: w, wn: wn, wrav: wrav, b: b, bn: bn, brav: brav, c1: c1 || '', c2: c2 || ''}}
 
 last_move = mn:move_number?
     whitespace*
@@ -89,3 +91,4 @@ movetext = moves:(move whitespace+)+ last:last_move? {
     return last ? result.concat(last) : result;
 }
 
+rav = "(" whitespace* m:movetext whitespace* ")" {return m}

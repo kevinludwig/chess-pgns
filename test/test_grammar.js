@@ -73,7 +73,21 @@ describe('grammar', () => {
         result.moves.should.have.lengthOf(5);
     });
 
-    it('should allow RAV');
+    it('should allow RAV', () => {
+        const [result] = parser.parse('1. e4 (1. d4 d5 ) e5 2. d4 (2. Nf3 Nc6 ) exd4 *');
+        result.moves.should.have.lengthOf(2);
+    });
+
+    it('should allow RAV of single move', () => {
+        const [result] = parser.parse('1. e4 (1. d4 ) e5 2. d4 exd4 *');
+        result.moves.should.have.lengthOf(2);
+    });
+
+    it('should allow RAV with no trailing whitespace', () => {
+        const [result] = parser.parse('1. e4 (1. d4 d5) e5 2. d4 exd4 *');
+        result.moves.should.have.lengthOf(2);
+    });
+
     it('should allow half move at end', () => {
         const [result] = parser.parse('1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O d6 6. Re1');
         result.moves.should.have.lengthOf(6);
