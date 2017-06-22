@@ -22,7 +22,7 @@
         };
     }
 }
-start = h:headers m:movetext r:result? {return make_game(h,m,r)}
+start = h:headers? m:movetext r:result? {return make_game(h || [],m,r)}
 
 double_quote = '"'
 string = double_quote str:[^"]* double_quote {return str.join('')}
@@ -31,30 +31,32 @@ ws = ' ' / '\f' / '\t'
 whitespace = ws / newline
 newline = '\n'
 
-header_name = chars:[A-Za-z0-9_-]+ {return chars.join('');}
+header_name = chars:[A-Za-z0-9_-]+ {return chars.join('')}
 header = '[' hn:header_name ws+ hv:string ']' newline { return make_header(hn,hv) }
-headers = hs:header+ {return hs;}
+headers = hs:header+ {return hs}
 
 piece = [NKQRB]
-rank = [a-f]
+rank = [a-h]
 file = [1-8]
 check = "+"
+checkmate = "#"
 capture = "x"
 period = "."
 result = "1-0" / "0-1" / "*" / "1/2-1/2"
 move_number = mn:integer period? {return mn}
-square = r:rank f:file {return r+f;}
+square = r:rank f:file {return r+f}
 promotion = "=" [QRBN]
 nag = chars:("$" integer) {return chars.join('')}
 
 comment_chars = [^}]
 comment = "{" cc:comment_chars* "}" {return cc.join('');}
 
-pawn_half_move = (r:rank c:capture)? square promotion? check?
-piece_half_move = piece capture? square check?
-castle_half_move = ("O-O" / "O-O-O") check?
+pawn_half_move = (r:rank c:capture)? square promotion?
+piece_half_move = piece capture? square
+piece_disambiguation_half_move = piece (rank / file) capture? square
+castle_half_move = ("O-O-O" / "O-O") 
 
-half_move = m:(castle_half_move / piece_half_move / pawn_half_move) {return flatten(m).join('');}
+half_move = m:((castle_half_move / piece_disambiguation_half_move / piece_half_move / pawn_half_move) (check / checkmate)?) {return flatten(m).join('');}
 move = c0:(c0:comment whitespace+ {return c0})? 
        mn:move_number? 
        c1:(whitespace+ c1:comment whitespace+ {return c1} / whitespace* {return ''}) 

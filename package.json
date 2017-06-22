@@ -6,7 +6,9 @@
     "test": "node validate.js"
   },
   "dependencies": {
+    "chai": "^4.0.2",
     "chess.js": "^0.10.2",
+    "mocha": "^3.4.2",
     "pegjs": "^0.10.0"
   },
   "devDependencies": {}
