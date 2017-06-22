@@ -57,6 +57,11 @@ describe('grammar', () => {
         const [result] = parser.parse('1. f3 $2 e5 $1 2. g4 $4 $15 Qh4#\n0-1');
         result.moves.should.have.lengthOf(4);
     });
+    
+    it('should allow alternative to NAGs !,?,!?,?!,!!,??', () => {
+        const [result] = parser.parse('1. f3? e5! 2. g4?? axb6?! 3. bxa8=N!? Qh4+!!\n0-1');
+        result.moves.should.have.lengthOf(6);
+    });
 
     it('should allow commentary', () => {
         const [result] = parser.parse('1. f3 {some comment} e5 {another comment} 2. g4 Qh4#\n0-1');
@@ -71,6 +76,11 @@ describe('grammar', () => {
     it('should allow disambiguation moves', () => {
         const [result] = parser.parse('1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 e6 5. e3 Nbd7 *');
         result.moves.should.have.lengthOf(10);
+    });
+
+    it('should allow ... prefixed on moves', () => {
+        const [result] = parser.parse('1. d4 {some commentary then} 1. ...d5 2. c4 dxc4 *');
+        result.moves.should.have.lengthOf(4);
     });
 
     it('should allow RAV', () => {
