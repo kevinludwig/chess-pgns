@@ -78,5 +78,14 @@ move = mn:move_number?
        c2:(whitespace+ c3:comment {return c3})? 
        {return {mn: mn, w: w, wn: wn, b: b, bn: bn, c1: c1 || '', c2: c2 || ''}}
 
-movetext = moves:(move whitespace+)+ { return moves.map(m => m[0])}
+last_move = mn:move_number?
+    whitespace*
+    w:half_move
+    wn:(whitespace+ n:nag {return n})*
+    c1:(whitespace+ c2:comment {return c2})? {return {mn: mn, w: w, wn: wn, c1: c1 || ''}}
+
+movetext = moves:(move whitespace+)+ last:last_move? { 
+    var result = moves.map(m => m[0]);
+    return last ? result.concat(last) : result;
+}
 
