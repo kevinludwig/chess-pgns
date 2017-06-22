@@ -32,6 +32,7 @@ game =
     c:comment? 
     whitespace* 
     m:movetext 
+    whitespace+
     r:result? {return make_game(h, c, m, r)}
 
 double_quote = '"'
@@ -69,26 +70,12 @@ castle_half_move = ("O-O-O" / "O-O")
 half_move = m:((castle_half_move / piece_disambiguation_half_move / piece_half_move / pawn_half_move) (check / checkmate)?) {return flatten(m).join('');}
 move = mn:move_number? 
        whitespace*
-       w:half_move 
-       wn:(whitespace+ n:nag {return n})*
-       c1:(whitespace+ c2:comment {return c2})? 
-       wrav:(whitespace+ r:rav {return r})?
-       whitespace+ 
-       b:half_move 
-       bn:(whitespace+ n:nag {return n})*
-       c2:(whitespace+ c3:comment {return c3})?
-       brav: (whitespace+ r:rav {return r})?
-       {return {mn: mn, w: w, wn: wn, wrav: wrav, b: b, bn: bn, brav: brav, c1: c1 || '', c2: c2 || ''}}
+       m:half_move 
+       nags:(whitespace+ n:nag {return n})*
+       com:(whitespace+ c2:comment {return c2})? 
+       ravs:(whitespace+ r:rav {return r})?
+       {return {mn, m, nags, ravs, com}}
 
-last_move = mn:move_number?
-    whitespace*
-    w:half_move
-    wn:(whitespace+ n:nag {return n})*
-    c1:(whitespace+ c2:comment {return c2})? {return {mn: mn, w: w, wn: wn, c1: c1 || ''}}
-
-movetext = moves:(move whitespace+)+ last:last_move? { 
-    var result = moves.map(m => m[0]);
-    return last ? result.concat(last) : result;
-}
+movetext = first:move rest:(whitespace+ move)* {return first ? [first].concat(rest.map(m => m[1])) : []}
 
 rav = "(" whitespace* m:movetext whitespace* ")" {return m}
