@@ -1,8 +1,13 @@
 [Event "QGA with 7. ...b5"]
-1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. O-O a6 7. Bb3 b5 *
+1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. O-O a6 7. Bb3 b5 8. a4 b4 (8. ...Bb7 9. axb5 axb5 10. Rxa8 Bxa8 11. Qe2 Qb6 12. dxc5 Bxc5 13. Nc3 Nbd7 (13. ...Bc6 14. Ne5 Ne4 15. Nxf7 Nxc3 16. Qh5 {with a strong attack}) 14. Qxb5 Qxb5  15. Nxb5 Ke7 {black is now playing for a draw}) 9. Nbd2 Be7 *
 
 [Event "QGA with 7. ...Nc6"]
-1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. O-O a6 7. Bb3 Nc6 *
+1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. O-O a6 7. Bb3 Nc6 8. Nc3 cxd4 
+(8. ...Be7 9. Qe2 O-O 10. Rd1 Qc7 11. Bd2 b6 12. Rac1 Bb7 13. dxc5 bxc5 {the c pawn is a target} (13. ...Bxc5 14. Bc2 Ne5 15. Na4 Nxf3+ 16. gxf3 {white's bishops outweigh the weakened kingside}))
+(8. ...b5 9. dxc5 Qxd1 10. Rxd1 Bxc5 11. Bd2 Bb7 12. Rac1 $14)
+9. exd4 Be7 10. Bg5 O-O 11. Qd2 b5 (11. ...h6 12. Bf4 Re8 13. Rad1 Bf8 14. Ne5 Ne7 15. Qd3 Ned5 16. Nxd5 Nxd5 17. Bc2 f5 18. Qg3 $16) 12. Rad1 Na5
+(12. ...Bb7 13. d5 exd5 14. Nxd5 Nxd5 15. Bxd5 {white has a strong initiative}) *
 
-[Event "QGA with 7. ...cxd4"]
-1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. O-O a6 7. Bb3 cxd4 *
+[Event "QGA with 7. ...Nbd7"]
+1. Nf3 d5 2. d4 Nf6 3. c4 dxc4 4. e3 e6 5. Bxc4 c5 6. O-O a6 7. Bb3 Nbd7 8. e4 Nxe4 9. Re1 Ndf6 10. d5 Nb6 11. dxe6 Bxe6 12. Bxe6 Qxd1 13. Bxf7+ Kxf7
+14. Rxd1 *
