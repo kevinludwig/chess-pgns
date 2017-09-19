@@ -1,0 +1,23 @@
+[Event "3. ...d5"]
+1. e4 e5 2. f4 exf4 3. Nf3 d5 4. exd5 Nf6 5. Bb5+ c6 (5. ...Bd7) (5. ...Nbd7) 6. dxc6 Nxc6 (6. ...bxc6?!) 7. Bc4 Bd6 (7. ...Nd5) 8. Qe2+ Qe7 (8. ...Kf8!?) 9. Qxe7 Kxe7 (9. ...Bxe7?!)
+
+[Event "Classical"]
+1. e4 e5 2. f4 Bc5 3. Nf3
+
+[Event "Falkbeer Counter Gambit"]
+1. e4 e5 2. f4 d5 3. exd5 e4 4. d3 Nf6 5. dxe4 Nxe4 6. Nf3! Bc5 (6. ...Be7 7. Qd4! Nf6 8. Nc3 Nbd7!) (6. ...c6!? 7. Bd3 cxd5 8. Bxe4 dxe4 9. Qxd8+ Kxd8 10. Ng5 Ke8 11. Ne4) 7. Qe2! Bf5 (7. ...Qxd5?!) (7. ...Bf2+?!)
+
+[Event "Nimzovitch Counter Gambit"]
+1. e4 e5 2. f4 d5 3. exd5 c6
+
+[Event "Quaade"]
+1. e4 e5 2. f4 exf4 3. Nf3 g5 4. Nc3
+
+[Event "Cunningham"]
+1. e4 e5 2. f4 exf4 3. Nf3 Be7 4. Bc4
+
+[Event "Fischer defense"]
+1. e4 e5 2. f4 exf4 3. Nf3 d6
+
+[Event "Becker Defense"]
+1. e4 e5 2. f4 exf4 3. Nf3 h6
